@@ -12,5 +12,5 @@ public class HelloController {
         return "hello";
     }
 
-    // addAttribute(String name, Object value) : value 객체를 name 이름으로 추가 , View에서 name으로 지정된 value 사용
+
 }
