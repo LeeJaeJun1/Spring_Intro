@@ -8,7 +8,13 @@ import java.util.List;
 import java.util.Optional;
 
 public class MemberService {
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    // private final MemberRepository memberRepository = new MemoryMemberRepository(); 인스턴스 다른 경우
+
+    private final MemberRepository memberRepository;
+
+    public MemberService(MemberRepository memberRepository) { // 외부에서 매개변수 넣도록 바꾼다
+        this.memberRepository = memberRepository;
+    }
 
     // 회원가입
     public Long join(Member member) {
