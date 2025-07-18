@@ -4,6 +4,7 @@ import hello.hello_spring.domain.Member;
 import hello.hello_spring.repository.MemberRepository;
 import hello.hello_spring.repository.MemoryMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -34,9 +35,12 @@ public class MemberService {
          */
         // 로직이 있는 경우 메소드로 뽑는다. ctrl + t
 
-        validateDuplicateMember(member); // 중복회원 검증
-        memberRepository.save(member);
-        return member.getId();
+            validateDuplicateMember(member); // 중복회원 검증
+            memberRepository.save(member);
+            return member.getId();
+
+
+
     }
 
     private void validateDuplicateMember(Member member) {
@@ -48,7 +52,9 @@ public class MemberService {
 
     // 전체 회원 조회
     public List<Member> findMembers() {
-        return memberRepository.findAll();
+
+            return memberRepository.findAll();
+
     }
 
     public Optional<Member> findOne(Long id) {
